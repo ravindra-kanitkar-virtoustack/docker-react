@@ -4,17 +4,6 @@ jobs:
     docker:
       - image: docker:20.10.9
     steps:
-      - checkout
-
-      # Install Docker client in the container
-      - run:
-          name: Install Docker client
-          command: |
-            curl -fsSL https://get.docker.com | sh
-            sudo usermod -aG docker $USER
-            sudo systemctl restart docker
-
-      # Build the Docker image using your Dockerfile
       - run:
           name: Build Docker image
           command: docker build -t ravindra-kanitkar-virtoustack/docker-react -f Dockerfile.dev .
